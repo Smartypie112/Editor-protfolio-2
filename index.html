@@ -813,15 +813,4 @@ const title = document.querySelector('.about-title');
 
 const aboutobserver = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
-
-aboutobserver.observe(title);
-</script>
-</body></html>
+    
