@@ -335,15 +335,6 @@
 </div>
 <div class="relative group reveal" style="transition-delay: 200ms;">
 <div class="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-3xl group-hover:bg-primary/15 transition-colors duration-1000"></div>
-<div class="relative aspect-video rounded-3xl overflow-hidden glass-prism">
-<img alt="Workspace" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[1.5s] ease-out" src="https://lh3.googleusercontent.com/aida/AP1WRLusPWKC7_NLasEMdV1o-D1oVPfUkGgwb4X_DoOGLijRabtR9HmHF-MftlCA8RwxxhlJgSn5JXpkms1XEUgGbqs0TbcmwVLdiouRlbEJ4Tyvsx2xe7uhvW-SVhfUiipKRcoZmQ-e_LmsJgZjyBT2Nnb2en5IukXZPl8rKR92M3NVSBg82FX0NicsX7yIj84WLp3zmiDcm8fI8tE47Nw_5kGXED8V4E2xIUMi80W0N8X5h16S0b6ZBn2-uxLh"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-<div class="absolute inset-0 flex items-center justify-center">
-<button class="w-20 h-20 rounded-full bg-white text-primary flex items-center justify-center border-2 border-on-surface shadow-[4px_4px_0px_#131b2e] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#131b2e] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-300">
-<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
-</button>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -813,4 +804,15 @@ const title = document.querySelector('.about-title');
 
 const aboutobserver = new IntersectionObserver(
   (entries) => {
-    
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+aboutobserver.observe(title);
+</script>
+</body></html>
