@@ -335,7 +335,7 @@
 </div>
 <div class="relative group reveal" style="transition-delay: 200ms;">
 <div class="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-3xl group-hover:bg-primary/15 transition-colors duration-1000"></div>
-<div class="relative aspect-video rounded-3xl overflow-hidden glass-prism>
+<div class="relative aspect-video rounded-3xl overflow-hidden glass-prism">
 <img alt="Workspace" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[1.5s] ease-out" src="https://lh3.googleusercontent.com/aida/AP1WRLusPWKC7_NLasEMdV1o-D1oVPfUkGgwb4X_DoOGLijRabtR9HmHF-MftlCA8RwxxhlJgSn5JXpkms1XEUgGbqs0TbcmwVLdiouRlbEJ4Tyvsx2xe7uhvW-SVhfUiipKRcoZmQ-e_LmsJgZjyBT2Nnb2en5IukXZPl8rKR92M3NVSBg82FX0NicsX7yIj84WLp3zmiDcm8fI8tE47Nw_5kGXED8V4E2xIUMi80W0N8X5h16S0b6ZBn2-uxLh"/>
 <div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
 <div class="absolute inset-0 flex items-center justify-center">
@@ -495,51 +495,32 @@
 <!-- Portfolio Gallery Section -->
 <section class="py-xxl" id="work">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
 <!-- Grid items -->
-<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black">
-<img alt="Work 01" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8XLaNl6-WyQoU-3R2pbHFSQFaWUuuxKcg5N2gutBzwtPTzAZb-reMK0skm2r8sr7Yx3uDbysQuGYbwv-FmSeYBvjY4NTYh9E2VpSEXgxL-yv61b4z51AYDoqKJixwiuzc2h0ySenZdHhB87oRTr2tnkOU9yuhEAXI6nQpnX6eylPsoC3fwhi-y6KtAcO67q_wEAwu5pBXaOC4sCMdhK0--BXvIaZ5qDrd1sHnVhTjXVFCLlAqo9ry-4DRCFfZ8xF7Uvz-1cbkcJ2j"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+<div class="reveal group relative aspect-[9/16] rounded-3xl overflow-hidden hard-shadow-card bg-black">
+<video class="gallery-video w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[1s]" loop muted playsinline preload="metadata">
+<source src="/Vids/1.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform play-icon">play_circle</span>
 </div>
 <div class="video-card-progress"></div>
 </div>
-<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 50ms;">
-<img alt="Work 02" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAojDTXidNfSnpDBQtS99m7LnofRjIiwNQaDwgvXJzglYI2tbBLQNt74VnVTqlFbw4qxAIBG-sN8OgoumieTHHMc2UUuRPPdgWcJhP3fKiEmZdcmkIUNT48UubX4G8pVsDhqtxAQq1bm3Fh1fF8GuGEDyc44HjHesZs7wdIhBR_UHX5jM95tbeMoRzZzUSrX3qtsg9EZ3NwDux5t32sibo4-BbxuoQpVeKaR-_aM9SxdWs98mZ74JaSUdI5gh4VVmR4lHwo3yzlXi_g"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+<div class="reveal group relative aspect-[9/16] rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 50ms;">
+<video class="gallery-video w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[1s]" loop muted playsinline preload="metadata">
+<source src="/Vids/2.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform play-icon">play_circle</span>
 </div>
 <div class="video-card-progress"></div>
 </div>
-<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 100ms;">
-<img alt="Work 03" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSw_Jyuoww1qsjjbSWPzFaLuesP6dmWBfVL9ZiqfKVVEvq2oF_b3i6JBczZuK-_LoZLvic6b_FGP31EwbFwX9gdc9wOsN8QRSBByhhMoiftXqs9IXZ3QB505IEvW8ZE8WGv4radBUYI5b5HhUZV47hAWwCsfvwOuX2aq9L64mPBBHszeyKPmpxyGKlwX4gnkI__9HWA02TgiyuVjWyxKMNLcPhfAktdu1ecTvJ36Fm6TM0t-L51uTlvmu6F1jG4F7uLia4GoK0LvI8"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
-</div>
-<div class="video-card-progress"></div>
-</div>
-<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 150ms;">
-<img alt="Work 04" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida/AP1WRLusPWKC7_NLasEMdV1o-D1oVPfUkGgwb4X_DoOGLijRabtR9HmHF-MftlCA8RwxxhlJgSn5JXpkms1XEUgGbqs0TbcmwVLdiouRlbEJ4Tyvsx2xe7uhvW-SVhfUiipKRcoZmQ-e_LmsJgZjyBT2Nnb2en5IukXZPl8rKR92M3NVSBg82FX0NicsX7yIj84WLp3zmiDcm8fI8tE47Nw_5kGXED8V4E2xIUMi80W0N8X5h16S0b6ZBn2-uxLh"/>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
-</div>
-<div class="video-card-progress"></div>
-</div>
-<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 200ms;">
-<div class="w-full h-full bg-gradient-to-br from-primary/40 to-secondary/40 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80">motion_photos_on</span>
-</div>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
-</div>
-<div class="video-card-progress"></div>
-</div>
-<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 250ms;">
-<div class="w-full h-full bg-gradient-to-br from-secondary/40 to-primary/40 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80">video_stable</span>
-</div>
-<div class="absolute inset-0 flex items-center justify-center">
-<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+<div class="reveal group relative aspect-[9/16] rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 100ms;">
+<video class="gallery-video w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[1s]" loop muted playsinline preload="metadata">
+<source src="/Vids/3.mp4" type="video/mp4">
+</video>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform play-icon">play_circle</span>
 </div>
 <div class="video-card-progress"></div>
 </div>
