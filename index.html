@@ -1,0 +1,827 @@
+<html class="light" lang="en"><head></head><body class="font-body-md text-body-md antialiased bg-background">
+<style>@keyframes drawPath { 0% { stroke-dashoffset: 2000; } 100% { stroke-dashoffset: 0; } } @keyframes cometMove { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }</style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STUDIO_X | Premium Video Editing &amp; Motion Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "outline": "#7b7487",
+                "surface-container-lowest": "#ffffff",
+                "surface-variant": "#dae2fd",
+                "background": "#faf8ff",
+                "on-secondary-fixed": "#21005e",
+                "error": "#ba1a1a",
+                "inverse-on-surface": "#eef0ff",
+                "surface-dim": "#d2d9f4",
+                "on-tertiary-container": "#e7e5f1",
+                "on-primary-fixed": "#25005a",
+                "on-secondary": "#ffffff",
+                "on-tertiary-fixed-variant": "#46464f",
+                "primary-fixed-dim": "#d2bbff",
+                "on-primary-container": "#ede0ff",
+                "on-surface-variant": "#4a4455",
+                "inverse-primary": "#d2bbff",
+                "primary-fixed": "#eaddff",
+                "surface-tint": "#732ee4",
+                "surface-bright": "#faf8ff",
+                "inverse-surface": "#283044",
+                "tertiary-fixed": "#e3e1ed",
+                "surface": "#faf8ff",
+                "secondary-container": "#ab8ffe",
+                "error-container": "#ffdad6",
+                "on-primary": "#ffffff",
+                "tertiary-fixed-dim": "#c7c5d1",
+                "on-secondary-container": "#3f1e8c",
+                "secondary": "#674bb5",
+                "surface-container-high": "#e2e7ff",
+                "on-primary-fixed-variant": "#5a00c6",
+                "tertiary": "#4e4e58",
+                "on-secondary-fixed-variant": "#4f319c",
+                "primary": "#630ed4",
+                "on-tertiary": "#ffffff",
+                "outline-variant": "#ccc3d8",
+                "tertiary-container": "#666670",
+                "on-background": "#131b2e",
+                "surface-container": "#eaedff",
+                "on-surface": "#131b2e",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a",
+                "surface-container-low": "#f2f3ff",
+                "on-tertiary-fixed": "#1a1b23",
+                "primary-container": "#7c3aed",
+                "secondary-fixed": "#e8ddff",
+                "secondary-fixed-dim": "#cebdff",
+                "surface-container-highest": "#dae2fd"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "xl": "48px",
+                "xs": "4px",
+                "sm": "8px",
+                "container-max": "1280px",
+                "md": "16px",
+                "unit": "4px",
+                "gutter": "24px",
+                "lg": "24px",
+                "margin-mobile": "16px",
+                "xxl": "96px"
+            },
+            "fontFamily": {
+                "label-sm": ["Inter", "sans-serif"],
+                "headline-lg": ["Hanken Grotesk", "sans-serif"],
+                "label-caps": ["JetBrains Mono", "monospace"],
+                "body-lg": ["Inter", "sans-serif"],
+                "display-lg": ["Hanken Grotesk", "sans-serif"],
+                "display-lg-mobile": ["Hanken Grotesk", "sans-serif"],
+                "headline-xl": ["Hanken Grotesk", "sans-serif"],
+                "body-md": ["Inter", "sans-serif"]
+            },
+            "fontSize": {
+                "label-sm": ["13px", {"lineHeight": "18px", "fontWeight": "500"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg": ["72px", {"lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "display-lg-mobile": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #faf8ff; color: #131b2e; overflow-x: hidden; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+        
+        /* Entrance Animations Styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mouse Glow Effect */
+        #interactive-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(115, 46, 228, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Floating Animation */
+        @keyframes floating {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(0.5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .animate-float {
+            animation: floating 6s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: floating 8s ease-in-out infinite 1s;
+        }
+
+        /* Neo-Brutalism Hard Shadow Styles */
+        .hard-shadow-card {
+            border: 2px solid #131b2e;
+            box-shadow: 6px 6px 0px #131b2e;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 20;
+            background: white;
+        }
+        .hard-shadow-card:hover {
+            transform: translate(3px, 3px) scale(1.02);
+            box-shadow: 3px 3px 0px #131b2e, 0 0 30px rgba(115, 46, 228, 0.1);
+        }
+
+        .hard-shadow-button {
+            border: 2px solid #131b2e;
+            box-shadow: 4px 4px 0px #131b2e;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hard-shadow-button:hover {
+            transform: translate(2px, 2px) scale(1.05);
+            box-shadow: 2px 2px 0px #131b2e, 0 0 20px rgba(115, 46, 228, 0.2);
+        }
+
+        .hard-shadow-primary {
+            border: 2px solid #131b2e;
+            box-shadow: 5px 5px 0px #25005a;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hard-shadow-primary:hover {
+            transform: translate(2px, 2px) scale(1.02);
+            box-shadow: 3px 3px 0px #25005a, 0 0 25px rgba(115, 46, 228, 0.3);
+        }
+
+        .glass-prism {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: backdrop-filter 0.5s ease, background 0.5s ease;
+        }
+
+        .header-glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px) saturate(160%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #732ee4 0%, #ab8ffe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .grid-line {
+            background: rgba(0, 0, 0, 0.07);
+            width: 1px;
+            height: 100%;
+        }
+        .premium-glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .purple-glow-under {
+            background: radial-gradient(circle, rgba(115, 46, 228, 0.25) 0%, transparent 70%);
+        }
+        .text-thank-you {
+            font-size: clamp(80px, 12vw, 160px);
+            line-height: 0.9;
+        }
+
+        /* Parallax Background Class */
+        .parallax-bg {
+            transform: translateY(var(--parallax-offset, 0px));
+            transition: transform 0.1s linear;
+        }
+
+        /* Motion Path Style Refined */
+        .motion-path-svg {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            overflow: visible;
+        }
+        .motion-path-stroke {
+            transition: stroke-dashoffset 4s cubic-bezier(0.33, 1, 0.68, 1);
+        }
+        .bloom-filter {
+            filter: drop-shadow(0 0 8px rgba(115, 46, 228, 0.8)) drop-shadow(0 0 20px rgba(217, 70, 239, 0.5));
+        }
+        .comet-head {
+            offset-path: var(--path-id);
+            animation: cometMove 8s linear infinite;
+        }
+
+        /* Progress Bar Hover Effect */
+        .video-card-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #732ee4;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+        .group:hover .video-card-progress {
+            width: 100%;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .motion-path-stroke, .comet-head {
+                animation: none !important;
+                stroke-dashoffset: 0 !important;
+            }
+            .reveal {
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+        .stat-card {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stat-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-card:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.stat-card:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.about-title {
+  transform: translateX(-120px);
+  opacity: 1;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+
+.about-title.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+    </style>
+<!-- Interactive Cursor Glow -->
+<div id="interactive-glow"></div>
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-[60] h-20 transition-all duration-500 header-glass">
+<div class="max-w-container-max mx-auto h-full px-gutter flex items-center justify-between">
+<div class="flex items-center gap-3 transition-transform hover:scale-105 duration-500">
+<img alt="STUDIO_X Logo" class="h-10 w-10 object-contain" src="https://raw.githubusercontent.com/Smartypie112/Editor-protfolio-2/refs/heads/main/New%20Project%2034%20%5BCB79A02%5D.png"/>
+<span class="font-headline-lg text-[18px] md:text-[22px] font-bold leading-[0.82] tracking-[-0.04em] text-on-background">
+  Editor<br>Issues
+</span>
+</div>
+<div class="flex items-center gap-6">
+<button onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="px-6 py-2 rounded-full font-label-caps text-[11px] text-white bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:scale-105 hover:shadow-[0_18px_32px_rgba(79,70,229,0.55),inset_0_2px_4px_rgba(255,255,255,0.5),inset_0_-6px_10px_rgba(0,0,0,0.22)] transition-all duration-300" >
+  Let's Talk
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative flex items-center pt-20 px-margin-mobile md:px-gutter max-w-container-max mx-auto overflow-hidden" id="home">
+<div class="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] parallax-bg" data-speed="0.2"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center w-full relative z-10">
+<div class="space-y-8 reveal">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg leading-tight text-on-surface">
+                I Turn Footage Into <span class="text-gradient-purple">Stories</span> That Stay.
+            </h1>
+<div class="flex flex-wrap gap-4 pt-4">
+<button
+  onclick="document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })"
+  class="group px-10 py-4 rounded-xl font-label-caps text-white flex items-center gap-2 bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_22px_40px_rgba(79,70,229,0.55),inset_0_2px_5px_rgba(255,255,255,0.55),inset_0_-6px_10px_rgba(0,0,0,0.22)] active:translate-y-0 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+  View Portfolio
+
+  <span class="material-symbols-outlined text-[18px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:-translate-y-1">
+    arrow_outward
+  </span>
+</button>
+</div>
+</div>
+<div class="relative group reveal" style="transition-delay: 200ms;">
+<div class="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-3xl group-hover:bg-primary/15 transition-colors duration-1000"></div>
+<div class="relative aspect-video rounded-3xl overflow-hidden glass-prism">
+<img alt="Workspace" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-[1.5s] ease-out" src="https://lh3.googleusercontent.com/aida/AP1WRLusPWKC7_NLasEMdV1o-D1oVPfUkGgwb4X_DoOGLijRabtR9HmHF-MftlCA8RwxxhlJgSn5JXpkms1XEUgGbqs0TbcmwVLdiouRlbEJ4Tyvsx2xe7uhvW-SVhfUiipKRcoZmQ-e_LmsJgZjyBT2Nnb2en5IukXZPl8rKR92M3NVSBg82FX0NicsX7yIj84WLp3zmiDcm8fI8tE47Nw_5kGXED8V4E2xIUMi80W0N8X5h16S0b6ZBn2-uxLh"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-20 h-20 rounded-full bg-white text-primary flex items-center justify-center border-2 border-on-surface shadow-[4px_4px_0px_#131b2e] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_#131b2e] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-300">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Partnerships Section -->
+<section class="relative py-xxl px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="creators">
+<!-- Background GIF -->
+<div class="absolute inset-0 w-full bottom-[300px]">
+<video class="w-full relative top-12 md:bottom-48 object-cover" id="portfolio-video" loop="" muted="" playsinline="">
+<source src="https://github.com/Smartypie112/Editor-protfolio-2/raw/refs/heads/main/pillu.mp4" type="video/mp4"/>
+</video>
+</div>
+<!-- Creator Path Animation Overlay -->
+<div class="relative z-10 mb-16 text-center reveal">
+<span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase block mb-4">Partnerships</span>
+<h2 class="font-display-lg text-headline-xl md:text-display-lg text-on-surface">Trusted by Top Creators</h2>
+</div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+  <!-- Nishant Gupta -->
+  <div class="creator-card reveal bg-white p-8 rounded-[2rem] flex flex-col gap-6 transition-all duration-700 ease-out hover:translate-y-[-8px] hard-shadow-card">
+    <div class="w-28 h-28 rounded-2xl bg-surface-variant overflow-hidden shrink-0 border border-on-surface/10">
+      <img
+        alt="Nishant Gupta"
+        class="w-full h-full object-cover"
+        src="https://raw.githubusercontent.com/Smartypie112/Editor-protfolio-2/refs/heads/main/aQfPoU2Z.jpg"
+      />
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="font-headline-lg text-[24px] text-on-surface leading-tight">
+        Nishant Gupta
+      </h3>
+
+      <a
+        href="https://www.instagram.com/codewithnishant/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-primary/5 px-4 py-2 rounded-lg inline-block border border-on-surface/20 hover:bg-primary/10 transition-colors"
+      >
+        <span class="text-primary font-label-caps text-[10px] tracking-wider">
+          @codewithnishant • TECH INFLUENCER
+        </span>
+      </a>
+
+      <p class="text-on-surface-variant font-body-md text-sm leading-relaxed">
+        Tech-focused creator helping make complex ideas simple through engaging, practical, and easy-to-understand content.
+      </p>
+
+      <div class="pt-2 border-t border-on-surface/10">
+        <span class="text-on-surface font-label-caps text-[11px] tracking-wider">
+          138K+ FOLLOWERS
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Kriti -->
+  <div
+    class="creator-card reveal bg-white p-8 rounded-[2rem] flex flex-col gap-6 transition-all duration-700 ease-out hover:translate-y-[-8px] hard-shadow-card"
+    style="transition-delay: 100ms;"
+  >
+    <div class="w-28 h-28 rounded-2xl bg-surface-variant overflow-hidden shrink-0 border border-on-surface/10">
+      <img
+        alt="Kriti"
+        class="w-full h-full object-cover"
+        src="https://raw.githubusercontent.com/Smartypie112/Editor-protfolio-2/refs/heads/main/468343812_1352844716125108_5173237095626429510_n.jpg"
+      />
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="font-headline-lg text-[24px] text-on-surface leading-tight">
+        Kriti
+      </h3>
+
+      <a
+        href="https://www.instagram.com/techtokwithkriti/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-primary/5 px-4 py-2 rounded-lg inline-block border border-on-surface/20 hover:bg-primary/10 transition-colors"
+      >
+        <span class="text-primary font-label-caps text-[10px] tracking-wider">
+          @techtokwithkriti • CLOUD ENGINEER
+        </span>
+      </a>
+
+      <p class="text-on-surface-variant font-body-md text-sm leading-relaxed">
+        Cloud engineer based in Canada. Worked to improve visual quality, storytelling, and retention across technical content.
+      </p>
+
+      <div class="pt-2 border-t border-on-surface/10">
+        <span class="text-on-surface font-label-caps text-[11px] tracking-wider">
+          9.7K+ FOLLOWERS
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Techtual Chatterjee -->
+  <div
+    class="creator-card reveal bg-white p-8 rounded-[2rem] flex flex-col gap-6 transition-all duration-700 ease-out hover:translate-y-[-8px] hard-shadow-card"
+    style="transition-delay: 200ms;"
+  >
+    <div class="w-28 h-28 rounded-2xl bg-surface-variant overflow-hidden shrink-0 border border-on-surface/10">
+      <img
+        alt="Techtual Chatterjee"
+        class="w-full h-full object-cover"
+        src="https://raw.githubusercontent.com/Smartypie112/Editor-protfolio-2/refs/heads/main/610172414_18093859679311044_3423643186666426918_n.jpg"
+      />
+    </div>
+
+    <div class="space-y-4">
+      <h3 class="font-headline-lg text-[24px] text-on-surface leading-tight">
+        Techtual Chatterjee
+      </h3>
+
+      <a
+        href="https://www.instagram.com/techtualchatter/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-primary/5 px-4 py-2 rounded-lg inline-block border border-on-surface/20 hover:bg-primary/10 transition-colors"
+      >
+        <span class="text-primary font-label-caps text-[10px] tracking-wider">
+          @techtualchatter • TECH CAREER CONTENT
+        </span>
+      </a>
+
+      <p class="text-on-surface-variant font-body-md text-sm leading-relaxed">
+        Creates content around tech careers, opportunities, and practical guidance to help aspiring professionals get hired.
+      </p>
+
+      <div class="pt-2 border-t border-on-surface/10">
+        <span class="text-on-surface font-label-caps text-[11px] tracking-wider">
+          6.7K+ FOLLOWERS
+        </span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+<!-- Reel Gallery Separator -->
+<div id="gallery" class="w-full bg-primary py-8 flex justify-center items-center relative overflow-hidden">
+<div class="absolute inset-0 bg-white/5 parallax-bg" data-speed="0.1"></div>
+<h2 class="text-white font-display-lg text-headline-xl md:text-display-lg uppercase tracking-widest relative z-10 reveal font-bold">REEL GALLERY</h2>
+</div>
+<!-- Portfolio Gallery Section -->
+<section class="py-xxl" id="work">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Grid items -->
+<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black">
+<img alt="Work 01" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8XLaNl6-WyQoU-3R2pbHFSQFaWUuuxKcg5N2gutBzwtPTzAZb-reMK0skm2r8sr7Yx3uDbysQuGYbwv-FmSeYBvjY4NTYh9E2VpSEXgxL-yv61b4z51AYDoqKJixwiuzc2h0ySenZdHhB87oRTr2tnkOU9yuhEAXI6nQpnX6eylPsoC3fwhi-y6KtAcO67q_wEAwu5pBXaOC4sCMdhK0--BXvIaZ5qDrd1sHnVhTjXVFCLlAqo9ry-4DRCFfZ8xF7Uvz-1cbkcJ2j"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="video-card-progress"></div>
+</div>
+<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 50ms;">
+<img alt="Work 02" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAojDTXidNfSnpDBQtS99m7LnofRjIiwNQaDwgvXJzglYI2tbBLQNt74VnVTqlFbw4qxAIBG-sN8OgoumieTHHMc2UUuRPPdgWcJhP3fKiEmZdcmkIUNT48UubX4G8pVsDhqtxAQq1bm3Fh1fF8GuGEDyc44HjHesZs7wdIhBR_UHX5jM95tbeMoRzZzUSrX3qtsg9EZ3NwDux5t32sibo4-BbxuoQpVeKaR-_aM9SxdWs98mZ74JaSUdI5gh4VVmR4lHwo3yzlXi_g"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="video-card-progress"></div>
+</div>
+<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 100ms;">
+<img alt="Work 03" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSw_Jyuoww1qsjjbSWPzFaLuesP6dmWBfVL9ZiqfKVVEvq2oF_b3i6JBczZuK-_LoZLvic6b_FGP31EwbFwX9gdc9wOsN8QRSBByhhMoiftXqs9IXZ3QB505IEvW8ZE8WGv4radBUYI5b5HhUZV47hAWwCsfvwOuX2aq9L64mPBBHszeyKPmpxyGKlwX4gnkI__9HWA02TgiyuVjWyxKMNLcPhfAktdu1ecTvJ36Fm6TM0t-L51uTlvmu6F1jG4F7uLia4GoK0LvI8"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="video-card-progress"></div>
+</div>
+<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 150ms;">
+<img alt="Work 04" class="w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-[1s]" src="https://lh3.googleusercontent.com/aida/AP1WRLusPWKC7_NLasEMdV1o-D1oVPfUkGgwb4X_DoOGLijRabtR9HmHF-MftlCA8RwxxhlJgSn5JXpkms1XEUgGbqs0TbcmwVLdiouRlbEJ4Tyvsx2xe7uhvW-SVhfUiipKRcoZmQ-e_LmsJgZjyBT2Nnb2en5IukXZPl8rKR92M3NVSBg82FX0NicsX7yIj84WLp3zmiDcm8fI8tE47Nw_5kGXED8V4E2xIUMi80W0N8X5h16S0b6ZBn2-uxLh"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="video-card-progress"></div>
+</div>
+<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 200ms;">
+<div class="w-full h-full bg-gradient-to-br from-primary/40 to-secondary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80">motion_photos_on</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="video-card-progress"></div>
+</div>
+<div class="reveal group relative aspect-video rounded-3xl overflow-hidden hard-shadow-card bg-black" style="transition-delay: 250ms;">
+<div class="w-full h-full bg-gradient-to-br from-secondary/40 to-primary/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80">video_stable</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-[56px] opacity-80 group-hover:scale-125 transition-transform">play_circle</span>
+</div>
+<div class="video-card-progress"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section Separator -->
+<div class="w-full bg-primary py-8 flex justify-center items-center relative overflow-hidden">
+<div class="absolute inset-0 bg-white/5 parallax-bg" data-speed="-0.1"></div>
+<h2 class="text-white font-display-lg text-headline-xl md:text-display-lg uppercase tracking-widest relative z-10 reveal font-bold">THE EDITOR</h2>
+</div>
+<!-- About Section -->
+<section class="py-xxl px-margin-mobile md:px-gutter max-w-container-max mx-auto" id="about">
+<div class="grid grid-cols-1 md:grid-cols-[0.5fr_0.5fr] gap-20 items-center">
+<div class="reveal">
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-2xl group-hover:bg-primary/10 transition-colors duration-1000"></div>
+<div class="relative aspect-[4/5] rounded-3xl overflow-hidden hard-shadow-card bg-surface-container-low">
+<img alt="Professional Workspace" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-[1.5s] ease-out" src="https://lh3.googleusercontent.com/aida/AP1WRLusPWKC7_NLasEMdV1o-D1oVPfUkGgwb4X_DoOGLijRabtR9HmHF-MftlCA8RwxxhlJgSn5JXpkms1XEUgGbqs0TbcmwVLdiouRlbEJ4Tyvsx2xe7uhvW-SVhfUiipKRcoZmQ-e_LmsJgZjyBT2Nnb2en5IukXZPl8rKR92M3NVSBg82FX0NicsX7yIj84WLp3zmiDcm8fI8tE47Nw_5kGXED8V4E2xIUMi80W0N8X5h16S0b6ZBn2-uxLh"/>
+</div>
+</div>
+</div>
+<div class="space-y-12">
+<div class="space-y-12 reveal">
+<div class="space-y-6">
+<h2 class="about-title font-display-lg text-headline-xl md:text-display-lg text-on-surface uppercase tracking-tight bg-primary p-4 ml-0 text-white right-6 md:right-0 relative inline-block">
+  ABOUT ME
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                        I'm a professional video editor specializing in short-form content, YouTube videos, and social media edits. My focus is creating engaging content that keeps viewers watching and helps creators and brands grow their audience.
+                    </p>
+</div>
+<!-- Stats Grid -->
+<div class="grid grid-cols-3 gap-4">
+<div class="stat-card text-center p-4 rounded-2xl bg-surface-container-low border border-on-surface/10 hard-shadow-card">
+<div class="counter font-display-lg text-[28px] md:text-[36px] text-primary font-extrabold" data-target="50">0</div>
+<div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Projects</div>
+</div>
+<div class="stat-card text-center p-4 rounded-2xl bg-surface-container-low border border-on-surface/10 hard-shadow-card">
+<div class="counter font-display-lg text-[28px] md:text-[36px] text-primary font-extrabold" data-target="2">0M</div>
+<div class="font-label-caps text-[9px] text-on-surface-variant uppercase">M+ Views</div>
+</div>
+<div class="stat-card text-center p-4 rounded-2xl bg-surface-container-low border border-on-surface/10 hard-shadow-card">
+<div class="counter font-display-lg text-[28px] md:text-[36px] text-primary font-extrabold" data-target="10">0</div>
+<div class="font-label-caps text-[9px] text-on-surface-variant uppercase">Clients</div>
+</div>
+</div>
+<!-- Skills Checklist -->
+<div class="space-y-4">
+<h3 class="font-label-caps text-label-caps text-on-surface">SKILLS &amp; TOOLS</h3>
+<div class="grid grid-cols-2 gap-y-3">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-sm">Motion Graphics</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-sm">Color Grading</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-sm">Sound Design</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-sm">Storytelling</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+<span class="font-body-md text-sm">Short-Form Content</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-6 reveal">
+<button class="group px-10 py-4 rounded-xl font-label-caps text-label-caps text-on-primary flex items-center gap-2 bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_22px_40px_rgba(79,70,229,0.55),inset_0_2px_5px_rgba(255,255,255,0.55),inset_0_-6px_10px_rgba(0,0,0,0.22)] active:translate-y-0 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]">
+  Let's Work Together
+
+  <span class="material-symbols-outlined text-[18px] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:-translate-y-1">
+    arrow_outward
+  </span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer id="footer" class="relative border border-black border-t-[0.5px] min-h-[40vh] md:min-h-[20vh] flex flex-col justify-between items-center overflow-hidden bg-gradient-to-br from-primary/90 to-secondary/90 w-full py-10">
+<div class="absolute inset-0 bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-600 opacity-80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-fuchsia-400/30 via-transparent to-transparent"></div>
+<div class="relative z-10 text-center w-full mt-0">
+<h2 class="text-headline-xl uppercase font-bold tracking-widest
+bg-gradient-to-b from-white via-violet-300 via-45% to-indigo-600
+bg-clip-text text-transparent
+drop-shadow-[0_3px_2px_rgba(255,255,255,0.35)]
+drop-shadow-[0_7px_10px_rgba(79,70,229,0.5)]">
+  CONTACT US
+</h2>
+</div>
+<div class="relative z-10 flex flex-wrap items-center justify-center gap-6 md:gap-10 px-6 mt-0 mb-0">
+<!-- Bubble 1: Instagram -->
+<a class="w-12 h-12 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_22px_40px_rgba(79,70,229,0.55),inset_0_2px_5px_rgba(255,255,255,0.55),inset_0_-6px_10px_rgba(0,0,0,0.22)] active:translate-y-0 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group" href="https://www.instagram.com/_editor.issues?igsi=YnkyZGc2YTh6OXBz">
+<svg class="w-5 h-5 text-white fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+</a>
+<!-- Bubble 2: LinkedIn -->
+<a class="w-12 h-12 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_22px_40px_rgba(79,70,229,0.55),inset_0_2px_5px_rgba(255,255,255,0.55),inset_0_-6px_10px_rgba(0,0,0,0.22)] active:translate-y-0 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group" href="https://www.linkedin.com/in/sarvjeet-kumar-218065407/">
+<svg class="w-5 h-5 text-white fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+<!-- Bubble 3: Twitter -->
+<a class="w-12 h-12 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_22px_40px_rgba(79,70,229,0.55),inset_0_2px_5px_rgba(255,255,255,0.55),inset_0_-6px_10px_rgba(0,0,0,0.22)] active:translate-y-0 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group" href="https://x.com/editor_issues">
+<svg class="w-5 h-5 text-white fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<!-- Bubble 4: WhatsApp -->
+<a class="w-12 h-12 md:w-20 md:h-20 rounded-full flex items-center justify-center bg-gradient-to-b from-violet-400 to-indigo-600 shadow-[0_12px_24px_rgba(79,70,229,0.45),inset_0_2px_4px_rgba(255,255,255,0.45),inset_0_-4px_8px_rgba(0,0,0,0.18)] hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_22px_40px_rgba(79,70,229,0.55),inset_0_2px_5px_rgba(255,255,255,0.55),inset_0_-6px_10px_rgba(0,0,0,0.22)] active:translate-y-0 active:scale-[0.98] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group" href="https://wa.me/919471616072">
+<svg class="w-5 h-5 text-white fill-current" viewbox="0 0 24 24"><path d="M12.031 0c-6.627 0-12.031 5.405-12.031 12.031 0 2.126.554 4.195 1.603 6.012l-1.603 5.957 6.096-1.597c1.782.987 3.805 1.506 5.885 1.506 6.627 0 12.031-5.405 12.031-12.031 0-6.626-5.404-12.031-12.031-12.031zm6.541 17.296c-.281.793-1.636 1.488-2.274 1.564-.537.064-1.229.17-3.488-.767-2.613-1.085-4.296-3.743-4.426-3.916-.13-.173-1.056-1.408-1.056-2.684 0-1.276.666-1.905.901-2.164.234-.259.508-.324.676-.324.169 0 .338 0 .484.007.151.008.351-.06.536.388.193.468.658 1.605.717 1.722.059.117.098.254.019.388-.078.134-.117.214-.234.351-.117.137-.245.295-.351.4-.117.117-.241.246-.109.474.132.228.588.973 1.264 1.574.872.776 1.611 1.01 1.838 1.127.228.117.362.098.496-.059.134-.156.577-.666.733-.895.156-.228.312-.19.521-.112.208.078 1.314.62 1.541.737.228.117.379.176.434.273.055.098.055.564-.226 1.357z"></path></svg>
+</a>
+</div>
+<div class="relative z-10 w-full text-center pt-2"><p class="font-label-caps text-[6px] tracking-[0.3em] text-white/40 uppercase">© 2026 STUDIO_X • ALL RIGHTS RESERVED</p></div></footer>
+<script>
+    // Reveal on Scroll Implementation
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // REFINED MOTION PATH ANIMATION LOGIC
+    const initMotionPath = () => {
+        const isMobile = window.innerWidth < 768;
+        const pathId = isMobile ? '#mobilePath' : '#desktopPath';
+        const path = document.querySelector(pathId);
+        const comet = document.querySelector('.comet-head');
+
+        if (!path || !comet) return;
+
+        // Set up comet variable path
+        comet.style.setProperty('--path-id', `path("${path.getAttribute('d')}")`);
+
+        const length = path.getTotalLength();
+        path.style.strokeDasharray = length;
+        path.style.strokeDashoffset = length;
+
+        const pathObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    path.style.strokeDashoffset = '0';
+                    path.style.animation = 'drawPath 4s cubic-bezier(0.33, 1, 0.68, 1) forwards';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const creatorsSection = document.getElementById('creators');
+        if (creatorsSection) pathObserver.observe(creatorsSection);
+    };
+
+    // Parallax Effect
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        document.querySelectorAll('.parallax-bg').forEach(el => {
+            const speed = el.getAttribute('data-speed') || 0.1;
+            el.style.setProperty('--parallax-offset', (scrolled * speed) + 'px');
+        });
+
+       const header = document.querySelector('header');
+
+if (scrolled > 50) {
+    header.style.background = 'rgba(255, 255, 255, 0.12)';
+    header.style.backdropFilter = 'blur(20px) saturate(180%)';
+    header.style.webkitBackdropFilter = 'blur(20px) saturate(180%)';
+    header.style.boxShadow = '0 10px 30px -10px rgba(0,0,0,0.08)';
+} else {
+    header.style.background = 'rgba(255, 255, 255, 0.04)';
+    header.style.backdropFilter = 'blur(20px) saturate(180%)';
+    header.style.webkitBackdropFilter = 'blur(20px) saturate(180%)';
+    header.style.boxShadow = 'none';
+}
+    });
+
+    // Interactive Glow / Mouse Follow
+    const glow = document.getElementById('interactive-glow');
+    window.addEventListener('mousemove', (e) => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+        
+        if(e.clientX < 0 || e.clientY < 0 || e.clientX > window.innerWidth || e.clientY > window.innerHeight) {
+            glow.style.opacity = '0';
+        } else {
+            glow.style.opacity = '1';
+        }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+        initMotionPath();
+    });
+</script>
+<script>
+const video = document.getElementById('portfolio-video');
+let playTimeout;
+
+const videoobserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        playTimeout = setTimeout(() => {
+          video.play().catch(() => {});
+        }, 1000); // 1 second delay
+      } else {
+        clearTimeout(playTimeout);
+        video.pause();
+      }
+    });
+  },
+  {
+    threshold: 0.5
+  }
+);
+
+videoobserver.observe(video);
+</script>
+<script>
+const statCards = document.querySelectorAll('.stat-card');
+
+const counterobserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    entry.target.classList.add('show');
+
+    const counter = entry.target.querySelector('.counter');
+    const target = Number(counter.dataset.target);
+
+    let start = 0;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      const value = Math.floor(progress * target);
+
+      if (target === 2) {
+        counter.textContent = value + 'M+';
+      } else {
+        counter.textContent = value + '+';
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    }
+
+    requestAnimationFrame(update);
+
+    counterobserver.unobserve(entry.target);
+  });
+}, {
+  threshold: 0.3
+});
+
+statCards.forEach(card => counterobserver.observe(card));
+const title = document.querySelector('.about-title');
+
+const aboutobserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+aboutobserver.observe(title);
+</script>
+</body></html>
